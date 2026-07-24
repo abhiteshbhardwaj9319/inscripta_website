@@ -12,25 +12,47 @@ nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top.py-3(role="navigation
         )
             span.navbar-toggler-icon
         #navbarResponsive.collapse.navbar-collapse
-            ul.navbar-nav.ms-auto.my-2.my-lg-0
-                li.nav-item.dropdown
-                    a.nav-link.dropdown-toggle(href='#' data-bs-toggle='dropdown') PRODUCTS
-                    .dropdown-menu
-                        a.dropdown-item(href='/products/parseqa/qabot') ParseQa QABot
-                        a.dropdown-item(href='/products/parseqa/curate') ParseQa Curate
-                        a.dropdown-item(href='/products/norgai') NorgAI
+            ul.navbar-nav.ms-auto.my-2.my-lg-0.align-items-lg-center
+                li.nav-item.dropdown.nav-mega
+                    a.nav-link.dropdown-toggle(href='#' data-bs-toggle='dropdown' aria-expanded='false') Products
+                    .dropdown-menu.mega-menu
+                        .mega-menu-grid
+                            a.mega-item(href='/products/parseqa/qabot')
+                                span.mega-item-title ParseQa QABot
+                                span.mega-item-desc High-accuracy question answering over your document estate
+                            a.mega-item(href='/products/parseqa/curate')
+                                span.mega-item-title ParseQa Curate
+                                span.mega-item-desc Intelligent content organization and data curation at scale
+                            a.mega-item(href='/products/norgai')
+                                span.mega-item-title NorgAI
+                                span.mega-item-desc AI drafting inside PowerPoint for teams that live in slides
+                            .mega-promo
+                                span.mega-promo-title Not sure which fits?
+                                span.mega-promo-desc Tell us your documents and we'll map the workflow.
+                                a.mega-promo-link(href='/#contact') Talk to our team
                 li.nav-item
-                    a.nav-link(href='/consulting') CONSULTING
+                    a.nav-link(href='/consulting') Consulting
                 li.nav-item
-                    a.nav-link(href='https://blog.inscripta.ai') BLOG
+                    a.nav-link(href='https://blog.inscripta.ai') Blog
                 li.nav-item.dropdown
-                    a.nav-link.dropdown-toggle(href='#' data-bs-toggle='dropdown') CASE STUDIES
-                    .dropdown-menu
-                        a.dropdown-item(href='/case-study/parseqa-life-sciences') ParseQa for Life Sciences
-                        a.dropdown-item(href='https://blog.inscripta.ai/we-tested-6-ai-presentation-tools-for-enterprise-proposals-heres-what-actually-works/' target='_blank' rel='noopener') AI Proposal Tools Benchmark
+                    a.nav-link.dropdown-toggle(href='#' data-bs-toggle='dropdown' aria-expanded='false') Case Studies
+                    .dropdown-menu.dropdown-menu-lg-end.card-menu
+                        a.mega-item(href='/case-study/parseqa-life-sciences')
+                            span.mega-item-title ParseQa for Life Sciences
+                            span.mega-item-desc 70% faster data extraction across pharma R&amp;D workflows
+                        a.mega-item(href='/consulting#cns-cases')
+                            span.mega-item-title Consulting Case Studies
+                            span.mega-item-desc Real-world deployments across four industries with measurable outcomes
+                        a.mega-item(href='https://blog.inscripta.ai/we-tested-6-ai-presentation-tools-for-enterprise-proposals-heres-what-actually-works/' target='_blank' rel='noopener')
+                            span.mega-item-title AI Proposal Tools Benchmark
+                            span.mega-item-desc Six AI presentation tools tested for enterprise proposals
+                        a.mega-item(href='https://blog.inscripta.ai/ai-ppt-tools-comparative-case-study/' target='_blank' rel='noopener')
+                            span.mega-item-title AI PPT Tools: Comparative Study
+                            span.mega-item-desc Head-to-head comparison on branding, traceability and output quality
                 //- Uncomment below line when hiring page is ready
                 // li.nav-item
                 //     a.nav-link(href='/hiring') HIRING
                 li.nav-item
-                    a.nav-link(href='/#contact') CONTACT
-                    
+                    a.nav-link(href='/#contact') Contact
+                li.nav-item.nav-cta
+                    a.btn.btn-book-demo(href='/#contact') Book a demo

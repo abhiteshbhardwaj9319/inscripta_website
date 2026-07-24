@@ -47,24 +47,7 @@ html(lang='en')
         // End Google Tag Manager (noscript)
 
         // Navigation
-        nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top.py-3
-            .container.px-4.px-lg-5
-                a.navbar-brand(href='/')
-                    //img.img-logo(src='assets/img/logo/logo-cs.png', alt='Inscripta AI')
-                button.navbar-toggler.navbar-toggler-right(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
-                    span.navbar-toggler-icon
-                #navbarResponsive.collapse.navbar-collapse
-                    ul.navbar-nav.ms-auto.my-2.my-lg-0
-                        li.nav-item
-                            a.nav-link(href='#about')  ABOUT
-                        li.nav-item
-                            a.nav-link(href='#features') FEATURES
-                        li.nav-item
-                            a.nav-link(href='#case-study') CASE STUDIES
-                        li.nav-item
-                            a.nav-link(href='/blog/') BLOG
-                        li.nav-item
-                            a.nav-link(href='#contact') CONTACT
+        include /pug/includes/menu.pug
 
         // Producthead
         header.prodhead 
@@ -254,7 +237,7 @@ html(lang='en')
                             a.mx-3.mt-2(href='mailto:sales@inscripta.ai') sales@inscripta.ai
 
         // Footer
-        include /pug/includes/footer.pug
+        include /pug/includes/footer_new.pug
 
         link(rel='preload' href='/css/styles.min.css' as='style' onload="this.onload=null;this.rel='stylesheet'")
         noscript

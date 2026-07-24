@@ -105,3 +105,339 @@
         }
     }
 }
+
+//
+// Active page indicator
+//
+
+#mainNav {
+    @include media-breakpoint-up(lg) {
+        .navbar-nav .nav-item .nav-link {
+            position: relative;
+
+            // Red underline marks the current page; text keeps the state color
+            &.active {
+                color: fade-out($white, 0.05);
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    left: 1rem;
+                    right: 1rem;
+                    bottom: -0.4rem;
+                    height: 3px;
+                    border-radius: 3px;
+                    background-color: $secondary;
+                }
+            }
+        }
+
+        &.navbar-shrink {
+            .navbar-nav .nav-item .nav-link.active {
+                color: $primary;
+            }
+        }
+    }
+}
+
+//
+// "Book a demo" CTA
+//
+
+#mainNav {
+    .nav-cta {
+        margin-top: 0.75rem;
+        margin-bottom: 0.25rem;
+
+        @include media-breakpoint-up(lg) {
+            margin: 0 0 0 1.25rem;
+        }
+    }
+
+    .btn-book-demo {
+        display: block;
+        background-color: $secondary;
+        color: $white;
+        font-family: $font-family-serif;
+        font-weight: $font-weight-bold;
+        font-size: 1rem;
+        padding: 0.55rem 1.5rem;
+        border: none;
+        border-radius: 50rem;
+        text-align: center;
+
+        &:hover,
+        &:focus {
+            background-color: darken($secondary, 10%);
+            color: $white;
+        }
+
+        @include media-breakpoint-up(lg) {
+            display: inline-block;
+        }
+    }
+}
+
+//
+// Dropdowns and Products mega menu
+//
+
+#mainNav {
+    // Mobile: dropdowns render inline inside the white collapse panel
+    .dropdown-menu {
+        border: 0;
+        box-shadow: none;
+        background-color: transparent;
+        padding: 0.25rem 0 0.5rem 0.75rem;
+
+        .dropdown-item {
+            font-family: $font-family-serif;
+            font-weight: $font-weight-bold;
+            color: $ia_dark;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.5rem;
+            white-space: normal;
+
+            &:hover,
+            &:focus {
+                color: $secondary;
+                background-color: $gray-100;
+            }
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        .dropdown-menu {
+            background-color: $white;
+            border-radius: 0.75rem;
+            box-shadow: 0 1rem 2.5rem rgba(11, 16, 41, 0.18);
+            padding: 0.6rem;
+            margin-top: 0.75rem;
+        }
+    }
+
+    // Compact card panel (Case Studies) — same card language as the mega menu.
+    // display only via .show — a bare `display: grid` would override Bootstrap's
+    // hidden state and leave the panel permanently open.
+    .card-menu {
+        gap: 0.6rem;
+
+        &.show {
+            display: grid;
+        }
+
+        @include media-breakpoint-up(lg) {
+            width: 24rem;
+            padding: 0.9rem;
+        }
+    }
+
+    // Products mega menu
+    .nav-mega {
+        @include media-breakpoint-up(lg) {
+            position: static;
+        }
+    }
+
+    .mega-menu {
+        @include media-breakpoint-up(lg) {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(76rem, calc(100vw - 3rem));
+            padding: 1.25rem;
+        }
+    }
+
+    .mega-menu-grid {
+        display: grid;
+        gap: 0.75rem;
+
+        @include media-breakpoint-up(lg) {
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+    }
+
+    .mega-item {
+        display: block;
+        background-color: $gray-100;
+        border: 1px solid $gray-200;
+        border-radius: 0.6rem;
+        padding: 1rem 1.1rem;
+        text-decoration: none;
+        transition: border-color 0.15s ease, background-color 0.15s ease;
+
+        &:hover,
+        &:focus {
+            border-color: $secondary;
+            background-color: $white;
+        }
+    }
+
+    .mega-item-title {
+        display: block;
+        font-family: $font-family-serif;
+        font-weight: $font-weight-bold;
+        color: $primary;
+        padding-left: 0.75rem;
+        border-left: 3px solid $secondary;
+        line-height: 1.2;
+    }
+
+    .mega-item-desc {
+        display: block;
+        font-size: 0.85rem;
+        font-weight: 400;
+        color: $gray-600;
+        margin-top: 0.5rem;
+    }
+
+    .mega-promo {
+        display: none;
+
+        @include media-breakpoint-up(lg) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: $ia_navy;
+            border-radius: 0.6rem;
+            padding: 1.1rem 1.25rem;
+        }
+    }
+
+    .mega-promo-title {
+        font-family: $font-family-serif;
+        font-weight: $font-weight-bold;
+        color: $white;
+    }
+
+    .mega-promo-desc {
+        font-size: 0.85rem;
+        color: fade-out($white, 0.25);
+        margin: 0.35rem 0 0.6rem;
+    }
+
+    .mega-promo-link {
+        font-size: 0.9rem;
+        font-weight: $font-weight-bold;
+        color: lighten($secondary, 22%);
+        text-decoration: underline;
+        text-underline-offset: 0.25rem;
+
+        &:hover,
+        &:focus {
+            color: $white;
+        }
+    }
+}
+
+//
+// Visual polish — crisp surfaces, motion, focus states
+//
+
+#mainNav {
+    .navbar-nav .nav-item .nav-link {
+        letter-spacing: 0.01em;
+        transition: color 0.2s ease;
+    }
+
+    @include media-breakpoint-up(lg) {
+        // Frosted-glass bar when scrolled: hairline inset edge + soft ambient shadow
+        &.navbar-shrink {
+            box-shadow: inset 0 -1px 0 rgba(20, 27, 63, 0.08), 0 8px 24px rgba(20, 27, 63, 0.08);
+
+            @supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+                background-color: fade-out($white, 0.08);
+                -webkit-backdrop-filter: blur(12px) saturate(160%);
+                backdrop-filter: blur(12px) saturate(160%);
+            }
+        }
+
+        .dropdown-menu {
+            border: 1px solid rgba(20, 27, 63, 0.08);
+            box-shadow: 0 1px 2px rgba(11, 16, 41, 0.06), 0 16px 40px rgba(11, 16, 41, 0.16);
+
+            &.show {
+                animation: navDropIn 0.18s ease-out;
+            }
+        }
+
+        // The mega panel keeps its centering transform while animating in
+        .mega-menu.show {
+            animation: megaDropIn 0.18s ease-out;
+        }
+    }
+
+    .mega-item {
+        transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+
+        &:hover,
+        &:focus {
+            box-shadow: 0 8px 20px rgba(11, 16, 41, 0.08);
+
+            .mega-item-title {
+                color: $secondary;
+            }
+        }
+    }
+
+    .mega-item-title {
+        transition: color 0.2s ease;
+    }
+
+    .btn-book-demo {
+        box-shadow: 0 2px 10px fade-out($secondary, 0.72);
+        transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+
+        &:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px fade-out($secondary, 0.62);
+        }
+    }
+
+    .nav-link:focus-visible,
+    .dropdown-item:focus-visible,
+    .mega-item:focus-visible,
+    .mega-promo-link:focus-visible,
+    .btn-book-demo:focus-visible {
+        outline: 3px solid fade-out($secondary, 0.55);
+        outline-offset: 2px;
+    }
+}
+
+@keyframes navDropIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes megaDropIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 8px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #mainNav .dropdown-menu.show,
+    #mainNav .mega-menu.show {
+        animation: none;
+    }
+
+    #mainNav .btn-book-demo,
+    #mainNav .btn-book-demo:hover {
+        transform: none;
+        transition: none;
+    }
+}

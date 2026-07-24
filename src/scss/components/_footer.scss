@@ -1,0 +1,192 @@
+//
+// Footer — pre-footer CTA band + navy site footer
+//
+
+// CTA band shown above the footer on every page
+.footer-cta {
+    background: linear-gradient(180deg, $white 0%, #f6f7fb 100%);
+    border-top: 1px solid $gray-200;
+    padding: 3rem 0;
+
+    .footer-cta-copy {
+        border-left: 4px solid $secondary;
+        padding-left: 1.5rem;
+    }
+
+    .footer-cta-title {
+        font-family: $font-family-serif;
+        font-weight: $font-weight-bold;
+        color: $primary;
+        font-size: 1.5rem;
+        letter-spacing: -0.01em;
+        margin-bottom: 0.4rem;
+
+        @include media-breakpoint-up(lg) {
+            font-size: 1.75rem;
+        }
+    }
+
+    .footer-cta-sub {
+        color: $gray-600;
+    }
+
+    .footer-cta-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+
+        @include media-breakpoint-up(lg) {
+            justify-content: flex-end;
+        }
+    }
+
+    .btn-cta-solid,
+    .btn-cta-outline {
+        font-weight: $font-weight-bold;
+        padding: 0.65rem 1.75rem;
+        border-radius: 50rem;
+        transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+
+        &:hover {
+            transform: translateY(-1px);
+        }
+
+        &:focus-visible {
+            outline: 3px solid fade-out($primary, 0.55);
+            outline-offset: 2px;
+        }
+    }
+
+    .btn-cta-solid {
+        background-color: $secondary;
+        border: 2px solid $secondary;
+        color: $white;
+        box-shadow: 0 2px 10px fade-out($secondary, 0.72);
+
+        &:hover,
+        &:focus {
+            background-color: darken($secondary, 10%);
+            border-color: darken($secondary, 10%);
+            color: $white;
+            box-shadow: 0 4px 14px fade-out($secondary, 0.62);
+        }
+    }
+
+    .btn-cta-outline {
+        background-color: transparent;
+        border: 2px solid $primary;
+        color: $primary;
+
+        &:hover,
+        &:focus {
+            background-color: $primary;
+            color: $white;
+            box-shadow: 0 4px 14px fade-out($primary, 0.7);
+        }
+    }
+}
+
+// Navy site footer
+.site-footer {
+    background: linear-gradient(180deg, lighten($ia_navy, 4%) 0%, $ia_navy 55%, darken($ia_navy, 3%) 100%);
+    color: fade-out($white, 0.25);
+    padding: 4rem 0 1.5rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    .footer-desc {
+        color: fade-out($white, 0.2);
+        font-size: 0.875rem;
+        line-height: 1.65;
+        margin-bottom: 1.25rem;
+    }
+
+    .footer-contact-link {
+        color: fade-out($white, 0.15);
+        text-decoration: none;
+        margin-left: 0.4rem;
+
+        &:hover,
+        &:focus {
+            color: $white;
+        }
+    }
+
+    .footer-col-title {
+        font-family: $font-family-serif;
+        font-weight: $font-weight-bold;
+        color: $white;
+        letter-spacing: 0.02em;
+        margin-bottom: 1rem;
+
+        &::after {
+            content: '';
+            display: block;
+            width: 1.5rem;
+            height: 2px;
+            border-radius: 2px;
+            background-color: $secondary;
+            margin-top: 0.4rem;
+        }
+    }
+
+    .footer-links {
+        margin-bottom: 0;
+
+        li + li {
+            margin-top: 0.5rem;
+        }
+
+        a {
+            color: fade-out($white, 0.28);
+            text-decoration: none;
+            transition: color 0.15s ease;
+
+            &:hover,
+            &:focus {
+                color: $white;
+            }
+
+            &:focus-visible {
+                outline: 2px solid fade-out($white, 0.4);
+                outline-offset: 2px;
+                border-radius: 2px;
+            }
+        }
+    }
+
+    .footer-bottom {
+        border-top: 1px solid fade-out($white, 0.88);
+        margin-top: 3rem;
+        padding-top: 1.25rem;
+        font-size: 0.875rem;
+    }
+
+    .footer-legal {
+        color: fade-out($white, 0.4);
+    }
+
+    .footer-legal-link {
+        color: fade-out($white, 0.3);
+        text-decoration: none;
+        transition: color 0.15s ease;
+
+        &:hover,
+        &:focus {
+            color: $white;
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .footer-cta {
+        .btn-cta-solid,
+        .btn-cta-outline {
+            transition: none;
+
+            &:hover {
+                transform: none;
+            }
+        }
+    }
+}
